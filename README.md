@@ -1,4 +1,7 @@
 # TM-Derby-Team
+
+![tm-derby-team](https://github.com/heliogoodbye/TM-Derby-Team/assets/105381685/35ceb310-508e-4f64-97d7-b5fc3865d085)
+
 **TM Derby Team** is a plugin designed to facilitate the management and display of roller derby team members on a WordPress website. 
 
 Here’s an overview of its features and functionality:
