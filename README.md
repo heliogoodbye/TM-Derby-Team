@@ -1,4 +1,4 @@
-# TM-Derby-Team
+# TM Derby Team
 
 ![tm-derby-team](https://github.com/heliogoodbye/TM-Derby-Team/assets/105381685/35ceb310-508e-4f64-97d7-b5fc3865d085)
 
