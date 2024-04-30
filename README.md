@@ -6,7 +6,7 @@
 
 Here’s an overview of its features and functionality:
 
-- **Custom Post Type for Team Members:** The plugin creates a custom post type called “Team Members” in the WordPress admin dashboard. This custom post type allows users to easily add, edit, and manage information about individual team members.
+- **Custom Post Type for Team Members:** The plugin creates a custom post type called “TM Derby Team" in the WordPress admin dashboard. This custom post type allows users to easily add, edit, and manage information about individual team members.
 - **Custom Fields:** The plugin includes custom fields for team members, such as *Jersey Number*, *Position*, *Pronouns*, and *Home Team* (for borderless/collective teams.) These custom fields allow users to provide detailed information about each team member beyond just their name and image.
 - **Team Taxonomy:** Optionally, the plugin allows users to categorize team members into different teams using a custom taxonomy called “Teams.” This feature enables users to organize team members based on their affiliation with specific teams or groups within the organization.
 - **Shortcode for Display:** The plugin provides a shortcode, [tm_derby_team], which users can insert into any page or post to display a grid of team members. The shortcode can be customized with additional attributes to filter the display by team if desired.
@@ -24,8 +24,8 @@ Overall, the TM Derby Team plugin provides a user-friendly solution for roller d
     - Activate the plugin through the ‘Plugins’ menu in WordPress.
       
 2. Adding Team Members
-    - After activating the plugin, you’ll find a new menu item called “Team Members” in the WordPress admin sidebar.
-    - Click on “Team Members” to add new team members.
+    - After activating the plugin, you’ll find a new menu item called “TM Derby Team" in the WordPress admin sidebar.
+    - Click on “TM Derby Team" to add new team members.
     - Fill in the member’s name, upload the member's headshot to the featured image area (optional), and fill in any additional information such as jersey number, position, and pronouns. (It is recommended that the uploaded headshot image be a 1:1 square image.)
     - Save the team member.
 3. Creating Teams (optional)
