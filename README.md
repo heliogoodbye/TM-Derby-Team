@@ -18,6 +18,8 @@ Overall, the TM Derby Team plugin provides a user-friendly solution for roller d
 ---
 ## How to use TM Derby Team
 
+**NOTE:** This plugin requires PHP version 5.6 or higher (PHP 7.x or PHP 8.x recommended for better performance and security).
+
 1. Installation
     - Download the plugin files.
     - Upload the plugin folder to the `/wp-content/plugins/` directory of your WordPress installation.
