@@ -39,7 +39,7 @@ Overall, the TM Derby Team plugin provides a user-friendly solution for roller d
     - You can include additional attributes in the shortcode to filter the display by team. For example: `[tm_derby_team team="my-team"]`.
 4. Customization:
     - You can customize the plugin’s appearance and behavior by modifying the CSS stylesheet and shortcode function.
-    - Adjust the CSS styles in the plugin’s stylesheet `(tm-derby-team-styles.css)` to match your site’s design.
+    - Adjust the CSS styles in the plugin’s stylesheet `(css/tm-derby-team-styles.css)` to match your site’s design.
     - Modify the shortcode function in the plugin file `(tm-derby-team.php)` to customize the display of team members.
 5. Managing Team Members:
     - To edit or delete existing team members, navigate to the “Team Members” menu in the WordPress admin sidebar.
