@@ -1,13 +1,13 @@
 <?php
 /*
-Plugin Name: TM Derby Team (Borderless/Collective Edition)
+Plugin Name: TM Derby Team
 Description: Organize and display a grid of roller derby team members.
 Plugin URI: https://thinmint333.com/wp-plugins/tm-derby-team/
 Version: 1.3
 Author: Thin Mint
 Author URI: https://thinmint333.com/
-License: GPL-2.0
-License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+License: GPL-3.0+
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 */
 
 // Register custom post type for team members
