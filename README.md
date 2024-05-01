@@ -26,7 +26,7 @@ Overall, the TM Derby Team plugin provides a user-friendly solution for roller d
 2. Adding Team Members
     - After activating the plugin, you’ll find a new menu item called “TM Derby Team" in the WordPress admin sidebar.
     - Click on “TM Derby Team" to add new team members.
-    - Fill in the member’s name, upload the member's headshot to the featured image area (optional), and fill in any additional information such as jersey number, position, and pronouns. (It is recommended that the uploaded headshot image be a 1:1 square image.)
+    - Fill in the member’s name, upload the member's headshot to the featured image area (optional; it is recommended that the headshot image be a 1:1 square image.), and fill in any additional information such as jersey number, position, and pronouns. For borderless and collective teams, you have the option of specifying a home team for each member. 
     - Save the team member.
 3. Creating Teams (optional)
     - You can create teams and categorize team members by team if desired.
