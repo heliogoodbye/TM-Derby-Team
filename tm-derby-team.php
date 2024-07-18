@@ -3,7 +3,7 @@
 Plugin Name: TM Derby Team
 Description: Organize and display a grid of roller derby team members.
 Plugin URI: https://thinmint333.com/wp-plugins/tm-derby-team/
-Version: 1.3
+Version: 1.4
 Author: Thin Mint
 Author URI: https://thinmint333.com/
 License: GPL-3.0+
@@ -148,15 +148,27 @@ add_action( 'init', 'tm_derby_team_register_taxonomy' );
 function tm_derby_team_shortcode($atts) {
     $atts = shortcode_atts(array(
         'team' => '', // Default to empty, which will display all teams
+        'order' => 'number', // Default order is by jersey number
     ), $atts);
 
     $team_slug = sanitize_title($atts['team']);
+    $order = sanitize_text_field($atts['order']);
+
+    // Set default sorting to jersey number
+    $meta_key = '_jersey_number';
+    $orderby = 'meta_value_num';
+
+    // If order is set to 'name', sort alphabetically by title
+    if ($order === 'name') {
+        $meta_key = '';
+        $orderby = 'title';
+    }
 
     $args = array(
         'post_type' => 'team_member',
         'posts_per_page' => -1,
-        'meta_key' => '_jersey_number', // Use the correct meta key for jersey number
-        'orderby' => 'meta_value_num', // Order by jersey number
+        'meta_key' => $meta_key,
+        'orderby' => $orderby,
         'order' => 'ASC', // Ascending order
     );
 
@@ -182,6 +194,10 @@ function tm_derby_team_shortcode($atts) {
                         <?php if (has_post_thumbnail()) : ?>
                             <div class="tm-derby-team-member-thumbnail">
                                 <?php the_post_thumbnail('thumbnail'); ?>
+                            </div>
+                        <?php else : ?>
+                            <div class="tm-derby-team-member-thumbnail">
+                                <img src="<?php echo esc_url(get_option('tm_derby_team_default_image')); ?>" alt="<?php the_title(); ?>" />
                             </div>
                         <?php endif; ?>
                         <?php
@@ -213,7 +229,7 @@ function tm_derby_team_shortcode($atts) {
                             echo '<p><strong>' . esc_html($home_team) . '</strong></p>';
                         endif;
                         ?>
-                                            </div>
+                    </div>
                 <?php endwhile; ?>
             </div>
         <?php else : ?>
@@ -232,3 +248,85 @@ function tm_derby_team_enqueue_styles() {
     wp_enqueue_style( 'tm-derby-team-styles', plugin_dir_url( __FILE__ ) . 'css/tm-derby-team-styles.css' );
 }
 add_action( 'wp_enqueue_scripts', 'tm_derby_team_enqueue_styles' );
+
+// Add settings page
+function tm_derby_team_settings_page() {
+    add_options_page(
+        'TM Derby Team Settings',
+        'TM Derby Team',
+        'manage_options',
+        'tm-derby-team-settings',
+        'tm_derby_team_settings_page_html'
+    );
+}
+add_action('admin_menu', 'tm_derby_team_settings_page');
+
+// Register settings
+function tm_derby_team_register_settings() {
+    register_setting('tm_derby_team_options', 'tm_derby_team_default_image');
+    add_settings_section('tm_derby_team_settings_section', 'Default Image Settings', 'tm_derby_team_settings_section_cb', 'tm_derby_team_settings');
+    add_settings_field('tm_derby_team_default_image', 'Default Featured Image', 'tm_derby_team_default_image_cb', 'tm_derby_team_settings', 'tm_derby_team_settings_section');
+}
+add_action('admin_init', 'tm_derby_team_register_settings');
+
+function tm_derby_team_settings_section_cb() {
+    echo '<p>Select a default image to use when a team member does not have a featured image.</p>';
+}
+
+function tm_derby_team_default_image_cb() {
+    $image_url = get_option('tm_derby_team_default_image');
+    ?>
+    <input type="text" id="tm_derby_team_default_image" name="tm_derby_team_default_image" value="<?php echo esc_attr($image_url); ?>" />
+    <input type="button" class="button-primary" id="tm_derby_team_default_image_button" value="Select Image" />
+    <?php
+}
+
+function tm_derby_team_settings_page_html() {
+    ?>
+    <div class="wrap">
+        <h1>TM Derby Team Settings</h1>
+        <form method="post" action="options.php">
+            <?php
+            settings_fields('tm_derby_team_options');
+            do_settings_sections('tm_derby_team_settings');
+            submit_button();
+            ?>
+        </form>
+    </div>
+    <?php
+}
+
+// Enqueue media uploader script
+function tm_derby_team_enqueue_media_uploader($hook) {
+    if ($hook != 'settings_page_tm-derby-team-settings') {
+        return;
+    }
+    wp_enqueue_media();
+    wp_enqueue_script('tm_derby_team_media_uploader', plugin_dir_url(__FILE__) . 'js/media-uploader.js', array('jquery'), null, true);
+}
+add_action('admin_enqueue_scripts', 'tm_derby_team_enqueue_media_uploader');
+
+// Add JavaScript for media uploader
+function tm_derby_team_media_uploader_js() {
+    ?>
+    <script>
+    jQuery(document).ready(function($) {
+        $('#tm_derby_team_default_image_button').click(function(e) {
+            e.preventDefault();
+            var image = wp.media({
+                title: 'Select Default Featured Image',
+                multiple: false
+            }).open()
+            .on('select', function() {
+                var uploaded_image = image.state().get('selection').first();
+                var image_url = uploaded_image.toJSON().url;
+                $('#tm_derby_team_default_image').val(image_url);
+            });
+        });
+    });
+    </script>
+    <?php
+}
+add_action('admin_footer', 'tm_derby_team_media_uploader_js');
+
+?>
