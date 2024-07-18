@@ -32,7 +32,7 @@ Overall, the TM Derby Team plugin provides a user-friendly solution for roller d
 
 2. Setting Default Image
     - Go to `Settings > TM Derby Team`.
-    - Click `Select Image` to choose an image to use as a default when no headshot has been assigned to a team member.
+    - Click `Select Image` to choose an image from the media library to use as a default when no headshot has been assigned to a team member.
     - Click `Save Changes`
            
 3. Adding Team Members
