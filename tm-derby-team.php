@@ -196,8 +196,8 @@ function tm_derby_team_shortcode($atts) {
                                 <?php
                                 // Get the player's name
                                 $player_name = get_the_title();
-                                // Output the thumbnail with the alt tag set to the player's name
-                                the_post_thumbnail('thumbnail', array('alt' => esc_attr($player_name)));
+                                // Output the full-size image with the alt tag set to the player's name
+                                the_post_thumbnail('full', array('alt' => esc_attr($player_name)));
                                 ?>
                             </div>
                         <?php else : ?>
