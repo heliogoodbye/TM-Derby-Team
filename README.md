@@ -29,24 +29,30 @@ Overall, the TM Derby Team plugin provides a user-friendly solution for roller d
     - Download the plugin files.
     - Upload the plugin folder to the `/wp-content/plugins/` directory of your WordPress installation.
     - Activate the plugin through the ‘Plugins’ menu in WordPress.
-      
-2. Adding Team Members
+
+2. Setting Default Image
+    - Go to `Settings > TM Derby Team`.
+    - Click `Select Image` to choose an image to use as a default when no headshot has been assigned to a team member.
+    - Click `Save Changes`
+           
+3. Adding Team Members
     - After activating the plugin, you’ll find a new menu item called “TM Derby Team" in the WordPress admin sidebar.
     - Click on “TM Derby Team" to add new team members.
     - Fill in the member’s name, upload the member's headshot to the featured image area (optional; it is recommended that the headshot image be a 1:1 square image.), and fill in any additional information such as jersey number, position, and pronouns. For borderless and collective teams, you have the option of specifying a home team for each member. 
     - Save the team member.
-3. Creating Teams (optional)
+4. Creating Teams (optional)
     - You can create teams and categorize team members by team if desired.
     - Go to the “Teams” menu in the WordPress admin sidebar.
     - Add a new team and assign team members to it.
     - Displaying Team Members
     - Use the `[tm_derby_team]` shortcode to display the team members grid on any page or post.
     - You can include additional attributes in the shortcode to filter the display by team. For example: `[tm_derby_team team="my-team"]`.
-4. Customization:
+    - Additionally, you can choose whether to display team members alphabetically by name (`order="name"`) or by jersey number (`order="number"`).
+5. Customization:
     - You can customize the plugin’s appearance and behavior by modifying the CSS stylesheet and shortcode function.
     - Adjust the CSS styles in the plugin’s stylesheet `(css/tm-derby-team-styles.css)` to match your site’s design.
     - Modify the shortcode function in the plugin file `(tm-derby-team.php)` to customize the display of team members.
-5. Managing Team Members:
+6. Managing Team Members:
     - To edit or delete existing team members, navigate to the “Team Members” menu in the WordPress admin sidebar.
     - From there, you can edit the details of each team member or delete them if needed.
 
