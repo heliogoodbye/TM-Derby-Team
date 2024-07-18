@@ -2,16 +2,21 @@
 
 ![tm-derby-team](https://github.com/heliogoodbye/TM-Derby-Team/assets/105381685/35ceb310-508e-4f64-97d7-b5fc3865d085)
 
-**TM Derby Team** is a plugin designed to facilitate the management and display of roller derby team members on a WordPress website. 
+**TM Derby Team** is a plugin designed to facilitate the management and display of roller derby team members on a WordPress website.
 
 Here’s an overview of its features and functionality:
 
-- **Custom Post Type for Team Members:** The plugin creates a custom post type called “TM Derby Team" in the WordPress admin dashboard. This custom post type allows users to easily add, edit, and manage information about individual team members.
-- **Custom Fields:** The plugin includes custom fields for team members, such as *Jersey Number*, *Position*, *Pronouns*, and *Home Team* (for borderless/collective teams.) These custom fields allow users to provide detailed information about each team member beyond just their name and image.
-- **Team Taxonomy:** Optionally, the plugin allows users to categorize team members into different teams using a custom taxonomy called “Teams.” This feature enables users to organize team members based on their affiliation with specific teams or groups within the organization.
-- **Shortcode for Display:** The plugin provides a shortcode, [tm_derby_team], which users can insert into any page or post to display a grid of team members. The shortcode can be customized with additional attributes to filter the display by team if desired.
-- **Customization Options:** Users can customize the appearance and behavior of the team member grid by modifying the CSS stylesheet included with the plugin. Additionally, they can adjust the shortcode function in the plugin file to customize the display of team members further.
-- **Easy Installation and Setup:** The plugin is easy to install and set up. Users can simply upload the plugin files to their WordPress installation, activate the plugin, and start adding team members right away.
+- **Custom Post Type for Team Members**: The plugin creates a custom post type called “TM Derby Team” in the WordPress admin dashboard. This custom post type allows users to easily add, edit, and manage information about individual team members.
+  
+- **Custom Fields**: The plugin includes custom fields for team members, such as Jersey Number, Position, Pronouns, and Home Team (for borderless/collective teams). These custom fields allow users to provide detailed information about each team member beyond just their name and image.
+  
+- **Team Taxonomy**: Optionally, the plugin allows users to categorize team members into different teams using a custom taxonomy called “Teams.” This feature enables users to organize team members based on their affiliation with specific teams or groups within the organization.
+  
+- **Shortcode for Display**: The plugin provides a shortcode, [tm_derby_team], which users can insert into any page or post to display a grid of team members. The shortcode can be customized with additional attributes to filter the display by team if desired. Additionally, users can now specify the sorting order of team members either alphabetically by name or numerically by jersey number using the `order` attribute (e.g., `[tm_derby_team order="name"]` or `[tm_derby_team order="number"]`).
+
+- **Customization Options**: Users can customize the appearance and behavior of the team member grid by modifying the CSS stylesheet included with the plugin. Additionally, they can adjust the shortcode function in the plugin file to customize the display of team members further.
+  
+- **Easy Installation and Setup**: The plugin is easy to install and set up. Users can simply upload the plugin files to their WordPress installation, activate the plugin, and start adding team members right away.
 
 Overall, the TM Derby Team plugin provides a user-friendly solution for roller derby organizations to showcase their team members on their WordPress websites, allowing visitors to learn more about the individuals who make up the team.
 
