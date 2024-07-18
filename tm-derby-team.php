@@ -249,63 +249,6 @@ function tm_derby_team_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'tm_derby_team_enqueue_styles' );
 
-// Register custom bulk actions
-function tm_derby_team_register_bulk_actions($bulk_actions) {
-    $bulk_actions['assign_to_team'] = 'Assign to Team';
-    $bulk_actions['update_position'] = 'Update Position';
-    $bulk_actions['update_pronouns'] = 'Update Pronouns';
-    return $bulk_actions;
-}
-add_filter('bulk_actions-edit-team_member', 'tm_derby_team_register_bulk_actions');
-
-// Handle custom bulk actions
-function tm_derby_team_handle_bulk_actions($redirect_to, $doaction, $post_ids) {
-    if ($doaction === 'assign_to_team') {
-        // Handle assigning to team
-        foreach ($post_ids as $post_id) {
-            // For example, assign to a default team with ID 1
-            wp_set_object_terms($post_id, array(1), 'team');
-        }
-        $redirect_to = add_query_arg('bulk_assigned_to_team', count($post_ids), $redirect_to);
-    } elseif ($doaction === 'update_position') {
-        // Handle updating position
-        foreach ($post_ids as $post_id) {
-            // For example, update to a default position
-            update_post_meta($post_id, '_position', 'Default Position');
-        }
-        $redirect_to = add_query_arg('bulk_updated_position', count($post_ids), $redirect_to);
-    } elseif ($doaction === 'update_pronouns') {
-        // Handle updating pronouns
-        foreach ($post_ids as $post_id) {
-            // For example, update to a default pronoun
-            update_post_meta($post_id, '_pronouns', 'They/Them');
-        }
-        $redirect_to = add_query_arg('bulk_updated_pronouns', count($post_ids), $redirect_to);
-    }
-    return $redirect_to;
-}
-add_filter('handle_bulk_actions-edit-team_member', 'tm_derby_team_handle_bulk_actions', 10, 3);
-
-// Display admin notices for custom bulk actions
-function tm_derby_team_bulk_action_admin_notices() {
-    if (!empty($_REQUEST['bulk_assigned_to_team'])) {
-        $count = intval($_REQUEST['bulk_assigned_to_team']);
-        printf('<div id="message" class="updated fade">' .
-               _n('%s team member assigned to team.', '%s team members assigned to team.', $count, 'tm-derby-team') . '</div>', $count);
-    }
-    if (!empty($_REQUEST['bulk_updated_position'])) {
-        $count = intval($_REQUEST['bulk_updated_position']);
-        printf('<div id="message" class="updated fade">' .
-               _n('%s team member position updated.', '%s team member positions updated.', $count, 'tm-derby-team') . '</div>', $count);
-    }
-    if (!empty($_REQUEST['bulk_updated_pronouns'])) {
-        $count = intval($_REQUEST['bulk_updated_pronouns']);
-        printf('<div id="message" class="updated fade">' .
-               _n('%s team member pronoun updated.', '%s team member pronouns updated.', $count, 'tm-derby-team') . '</div>', $count);
-    }
-}
-add_action('admin_notices', 'tm_derby_team_bulk_action_admin_notices');
-
 // Add settings page
 function tm_derby_team_settings_page() {
     add_options_page(
