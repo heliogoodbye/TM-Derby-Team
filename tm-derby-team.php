@@ -193,11 +193,16 @@ function tm_derby_team_shortcode($atts) {
                     <div class="tm-derby-team-member">
                         <?php if (has_post_thumbnail()) : ?>
                             <div class="tm-derby-team-member-thumbnail">
-                                <?php the_post_thumbnail('thumbnail'); ?>
+                                <?php
+                                // Get the player's name
+                                $player_name = get_the_title();
+                                // Output the thumbnail with the alt tag set to the player's name
+                                the_post_thumbnail('thumbnail', array('alt' => esc_attr($player_name)));
+                                ?>
                             </div>
                         <?php else : ?>
                             <div class="tm-derby-team-member-thumbnail">
-                                <img src="<?php echo esc_url(get_option('tm_derby_team_default_image')); ?>" alt="<?php the_title(); ?>" />
+                                <img src="<?php echo esc_url(get_option('tm_derby_team_default_image')); ?>" alt="<?php echo esc_attr($player_name); ?>" />
                             </div>
                         <?php endif; ?>
                         <?php
