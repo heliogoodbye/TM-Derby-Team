@@ -1,6 +1,7 @@
 # TM Derby Team
 
-![tm-derby-team-header](https://github.com/user-attachments/assets/0258daf4-24f8-4be8-afb5-101abbecb888)
+![tm-derby-team-header](https://github.com/user-attachments/assets/e7d24f51-0efc-4ce7-807d-c14342b0130d)
+
 
 **TM Derby Team** is a plugin designed to facilitate the management and display of roller derby team members on a WordPress website.
 
